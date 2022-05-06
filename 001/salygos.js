@@ -131,6 +131,9 @@ for (let i = 0; i < numArray.length; i++) {
     sortedSum += numArray[i];
   }
 }
+
+// const arithMean = numArray.reduce((a, b) => a + b, 0) / numArray.length;
+
 arithMean1 = sum / numArray.length;
 arithMean2 = sortedSum / numCount;
 
