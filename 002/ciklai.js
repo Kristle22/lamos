@@ -50,7 +50,7 @@ for (let i = 0; i < 5; i++) {
 console.log('8)---------------------------');
 
 let i;
-while (i != 5) {
+while (i !== 5) {
   i = Math.floor(Math.random() * 11);
   console.log(i);
 }
@@ -101,23 +101,32 @@ while (oddLoop < 3) {
   randNr = Math.floor(Math.random() * 11);
   if (randNr % 2) {
     oddLoop++;
-    console.log(randNr);
   }
+  console.log(randNr);
 }
 
 // 13)
-console.log('13)---------------------------');
+console.log('13) a)---------------------------');
 
 let randFirst;
 let randSecond;
-while (true) {
+let spin = true;
+while (spin) {
   randFirst = Math.floor(Math.random() * 11);
   randSecond = Math.floor(Math.random() * 11);
-  console.log(`${randFirst} : ${randSecond}`);
-  if (randFirst == randSecond) {
-    break;
+  if (randFirst === randSecond) {
+    spin = false;
   }
+  console.log(`${randFirst} : ${randSecond}`);
 }
+console.log('13) b)---------------------------');
+let randomFirst;
+let randomSecond;
+do {
+  randomFirst = Math.floor(Math.random() * 11);
+  randomSecond = Math.floor(Math.random() * 11);
+  console.log(`${randomFirst} : ${randomSecond}`);
+} while (randomFirst !== randomSecond);
 
 // 14)
 console.log('14)---------------------------');
@@ -144,10 +153,13 @@ let ciklas = 0;
 while (ciklas < 3) {
   pirmasAts = Math.floor(Math.random() * 11);
   antrasAts = Math.floor(Math.random() * 11);
-  if (pirmasAts % 2 || antrasAts % 2) {
+  if (pirmasAts % 2) {
     ciklas++;
-    console.log(`${pirmasAts} : ${antrasAts}`);
   }
+  if (antrasAts % 2) {
+    ciklas++;
+  }
+  console.log(`${pirmasAts} : ${antrasAts}`);
 }
 
 
