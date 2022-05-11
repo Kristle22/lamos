@@ -86,3 +86,17 @@ for (let i = 0; i < kotletoKasniai; i++) {
 
 console.log(kotletasSuvalgytasPer);
 
+
+let ratsCount;
+let spinCount = 0;
+let sumRats = 0;
+
+do {
+  spinCount++;
+  ratsCount = rand(3, 5);
+  console.log(ratsCount);
+  sumRats += ratsCount;
+
+} while (sumRats < 20);
+
+console.log(`Kol sugavo ${sumRats} ziurkiu, katinas apsisuko ${spinCount} ratus.`)

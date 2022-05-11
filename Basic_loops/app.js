@@ -191,20 +191,25 @@ let randomInner;
 let outerCount = 0;
 let innerCount = 0;
 let count5 = 0;
+let nextRandom;
 
 do {
   outerCount++;
+  nextRandom = randomNumber;
   randomNumber = rand(5, 10);
-  console.log(randomNumber);
+  console.log('RANDOM NUMBER: ', randomNumber);
+  console.log('NEXT RANDOM: ', nextRandom);
 
   for (let i = 0; i < randomNumber; i++) {
     innerCount++;
     randomInner = rand(5, 10);
     console.log('Inner loop number:', randomInner);
   }
-  if (randomNumber === 5) {
+  if (randomNumber === 5 && nextRandom === 5) {
     count5++;
     console.log('The [', count5, '] cycle of-5 is over.');
+  } else {
+    count5 = 0;
   }
 
 } while (randomNumber !== 5 || count5 < 3);
@@ -213,25 +218,28 @@ console.log(`Isorinis ciklas kartojosi ${outerCount} kart. Vidinis ciklas bendra
 
 console.log('10 ---------------------------');
 
-// let taskaiPetro;
-// let taskaiKazio;
-// let rezPetro = 0;
-// let rezKazio = 0;
-// let laimetojas;
-// while (rezPetro < 222 && rezKazio < 222) {
-//   taskaiPetro = rand(10, 20);
-//   taskaiKazio = rand(5, 25);
-//   rezPetro += taskaiPetro;
-//   rezKazio += taskaiKazio;
-//   if (rezPetro >= 222) {
-//     laimetojas = 'Petras';
-//   } else {
-//     laimetojas = 'Kazys';
-//   }
-//   console.log(`Petras: ${taskaiPetro} / Kazys: ${taskaiKazio}`);
-// }
+let taskaiPetro;
+let taskaiKazio;
+let rezPetro = 0;
+let rezKazio = 0;
+let laimetojas;
+while (rezPetro < 222 && rezKazio < 222) {
+  taskaiPetro = rand(10, 20);
+  taskaiKazio = rand(5, 25);
+  rezPetro += taskaiPetro;
+  rezKazio += taskaiKazio;
+  if (rezPetro >= 222) {
+    laimetojas = 'Petras';
+  } else {
+    laimetojas = 'Kazys';
+  }
+  console.log(`Petras: ${taskaiPetro} / Kazys: ${taskaiKazio}`);
+}
 
-// console.log(`Petro rez.: ${rezPetro} / Kazio rez.: ${rezKazio}`)
-// console.log(`Partija laimejo ${laimetojas}.`)
+console.log(`Petro rez.: ${rezPetro} / Kazio rez.: ${rezKazio}`)
+console.log(`Partija laimejo ${laimetojas}.`)
+
+
+
 
 
