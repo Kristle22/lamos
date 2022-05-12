@@ -6,37 +6,24 @@ function rand(min, max) {
 
 // 1)
 console.log('1)---------------------------');
+const piniginesIlgis = rand(10, 30);
 const pinigine = [];
 let piniguSuma = 0;
 let banknotai = 0;
-let maxEuru = 0;
-let kiekMax = 0;
+
 const popPinigai = [];
 const monetos = [];
 
-for (let i = 0; i < rand(10, 30); i++) {
-  while (pinigine.length < 30) {
-    pinigine.push(rand(0, 10));
-  }
+for (let i = 0; i < piniginesIlgis; i++) {
+  pinigine.push(rand(0, 10));
   piniguSuma += pinigine[i];
   if (pinigine[i] > 2) {
     banknotai += pinigine[i];
-  }
-  if (pinigine[i] <= 2) {
+    popPinigai.push(pinigine[i]);
+  } else {
     monetos.push(pinigine[i]);
     pinigine[i] = 0;
     console.log('Cikle: ', monetos);
-  } else {
-    popPinigai.push(pinigine[i]);
-  }
-  if (pinigine[i] > maxEuru) {
-    maxEuru = pinigine[i];
-  }
-  if (pinigine[i] === maxEuru) {
-    kiekMax++;
-  }
-  if (pinigine[i] === 0) {
-    pinigine[i] = `[${i}]`
   }
 }
 console.log(pinigine);
@@ -55,15 +42,38 @@ console.log(`Dabar pinigineje guli tiktai banknotai nuo 3 Eur.:${pinigine}`);
 
 // 5)
 console.log('5)---------------------------');
+
+let maxEuru = 0;
+let kiekMax = 0;
+
+for (let i = 0; i < pinigine.length; i++) {
+  maxEuru = Math.max(...pinigine);
+
+  if (pinigine[i] === maxEuru) {
+    kiekMax++;
+  }
+}
+console.log(maxEuru, kiekMax, pinigine);
 console.log(`Pinigineje didziausiu banknotu po ${maxEuru} Eur. yra ${kiekMax} vnt.`);
 
 // 6)
+
 console.log('6)---------------------------');
+
+for (let i = 0; i < pinigine.length; i++) {
+  if (pinigine[i] === 0) {
+    pinigine[i] = `[${i}]`
+  }
+}
 console.log('Masyvo elementai su 0 reiksmiu indeksais: ', pinigine);
 
 // 7)
 console.log('7)---------------------------');
-console.log(`Masyvo ${pinigine} ilgis yra ${pinigine.length}.`);
+
+while (pinigine.length < 30) {
+  pinigine.push(rand(0, 10));
+}
+console.log('Masyvo ', pinigine, 'ilgis yra ', pinigine.length);
 
 // 8)
 console.log('8)---------------------------');
