@@ -26,7 +26,7 @@ for (let i = 0; i < piniginesIlgis; i++) {
     console.log('Cikle: ', monetos);
   }
 }
-console.log(pinigine);
+console.log(pinigine, popPinigai, monetos);
 
 // 2)
 console.log('2)---------------------------');
@@ -53,8 +53,7 @@ for (let i = 0; i < pinigine.length; i++) {
     kiekMax++;
   }
 }
-console.log(maxEuru, kiekMax, pinigine);
-console.log(`Pinigineje didziausiu banknotu po ${maxEuru} Eur. yra ${kiekMax} vnt.`);
+console.log('Pinigineje didziausiu banknotu po', maxEuru, 'Eur. yra ', kiekMax);
 
 // 6)
 
@@ -158,12 +157,20 @@ console.log('Dabar pinigineje bilietai isrusiuoti nuo didziausio iki maziausio: 
 console.log('16)---------------------------');
 let kupiura;
 let suma500 = 0;
+
+let kupiuraPask;
+let sumaVirs = 0;
 do {
   kupiura = rand(3, 10);
   suma500 += kupiura;
   popPinigai.push(kupiura);
+
+  if (suma500 > 500) {
+    sumaVirs++;
+    kupiura = 0;
+  }
   console.log('Kupiura: ', kupiura);
-} while (suma500 < 500);
+} while (suma500 < 500 && sumaVirs < 1);
 
 
 console.log('I pinigine ideta ', suma500, 'Eur. suma smulkiom kupiurom.');

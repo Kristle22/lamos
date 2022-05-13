@@ -169,7 +169,7 @@ for (let i = 0; i < 200; i++) {
     unKombinacijos.push(raideMix);
     kombiCount++;
   }
-  console.log(mixMasyvas[i]);
+  // console.log(mixMasyvas[i]);
 }
 console.log(pirmasRaidMasyvas, antrasRaidMasyvas, treciasRaidMasyvas);
 console.log('Triju masyvu miksas:', mixMasyvas);
