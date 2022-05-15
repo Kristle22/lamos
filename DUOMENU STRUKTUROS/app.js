@@ -37,36 +37,60 @@ class Product {
     this.total = this.price * this.amount;
   }
 }
-const product = new Product('Dviratis');
-console.log('Pirktos prekes pavyzdys:', product);
 
-const vienaPreke = new Product(products[0]);
+const vienaPreke = new Product(products[rand(0, 25)]);
+
+console.log('Pirktos prekes pavyzdys:', vienaPreke);
 
 // A. 4) Sukurti products masyvo elementus(objektus) ir sudeti i masyva.
 
 let visiProduktai = [];
 
 for (let i = 0; i < products.length; i++) {
-  const vienaPreke = new Product(products[i]);
-  visiProduktai.push(vienaPreke);
+  const preke = new Product(products[i]);
+  visiProduktai.push(preke);
 }
 console.log('Visi products masyvo elementai:', visiProduktai);
 
-// A. 5) Sukurti products random masyva.
+// A. 5) Sukurti products random masyva ir funkcija prekiu krepseliui.
+
+// prekiu krepselio atskiras masyvas
 
 const pirktosPrekes = [];
-let prekiuPirkta;
 let total = 0;
+for (let i = 0; i < rand(1, 10); i++) {
+  // pirktosPrekes.push(new Product(products[rand(0, 25)]));
 
-for (let i = 0; i < prekiuPirkta; i++) {
-  prekiuPirkta = rand(1, 10);
-  const vienaPreke = new Product(products[i]);
-  pirktosPrekes.push(vienaPreke);
+  pirktosPrekes.push(visiProduktai[rand(0, 25)]);
   total += vienaPreke.total;
 }
-
 console.log('Viso prekiu pirkta uz:', total, 'Eur.');
 console.log('Vienos saskaitos products masyvo elementai:', pirktosPrekes);
+
+// funkcija atsitiktiniam prekiu indeksui gauti
+
+// function randomInd() {
+//   for (let i = 0; i < 25; i++) {
+//     return rand(0, 25);
+//   }
+// }
+// console.log(randomInd());
+// console.log('RANDOM ITEM:', products[randomInd()]);
+
+// funkcija prekiu krepseliams saskaitoj gauti
+
+function shoppingCarts() {
+  const pirktosPrekes = [];
+  let prekesInd;
+  for (let i = 0; i < 100; i++) {
+    prekesInd = rand(0, 25);
+    const vienaPreke = new Product(products[prekesInd]);
+    pirktosPrekes.push(vienaPreke);
+    return pirktosPrekes;
+  }
+}
+console.log('PREKIU KREPSELIAI:', shoppingCarts());
+
 
 // A. 7) Sukurti vienos saskaitos klase.
 
