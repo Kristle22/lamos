@@ -89,12 +89,12 @@ const naujiGyvunai = [...visiGyvunai].filter(item => item.classList.contains('ne
 console.log('Yra', naujiGyvunai.length, 'nauji gyvunai', naujiGyvunai);
 
 // i) Suskaičiuoti atskirai kiek yra naujų gyvūnų kiekvienoje kategorijoje
-// const kategorijos = [...gyvKategorijos];
-// for (i = 0; i < kategorijos.length; i++) {
 
-// }
+const kategorijos = [...gyvKategorijos];
 
-// console.log(kategorijos.length);
+kategorijos.filter(element => {
+  console.log(element.id, 'kategorijoje', element.querySelectorAll('.new').length, 'nauji gyvunai');
+});
 
 // 3)
 console.log('3) Elementų events---------------------------');
@@ -175,7 +175,7 @@ font_back.addEventListener('click', () => {
 
 // 4)
 console.log('4) Elementų grupių events---------------------------');
-// a) Padaryti, kad dukartus paspaudus ant naujų gyvūnų jie nusispalvintu raudonai; 
+// a) Padaryti, kad dukartus paspaudus ant naujų gyvūnų jie nusispalvintu raudonai;
 
 const newAnimals = document.querySelectorAll('li.new')
 console.log(newAnimals);
