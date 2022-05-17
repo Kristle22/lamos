@@ -41,12 +41,12 @@
 
 
 document.querySelector('#vaikas').addEventListener('click', e => {
-  e.stopPropagation();
+  // e.stopPropagation();
   console.log('vaikas');
   e.target.style.backgroundColor = 'red';
 });
 
 document.querySelector('#tevas').addEventListener('click', e => {
   console.log('tevas', e.target);
-  document.querySelector('#tevas').style.backgroundColor = 'red';
+  e.target.style.backgroundColor = 'red';
 });
