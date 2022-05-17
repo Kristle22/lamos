@@ -101,33 +101,35 @@ console.log(bePirminiuSkaiciu(array));
 console.log('7)---------------------------');
 // Sugeneruokite atsitiktinio (nuo 10 iki 20) ilgio masyvą, kurio visi, išskyrus paskutinį, elementai yra atsitiktiniai skaičiai nuo 0 iki 10, o paskutinis masyvas, kuris generuojamas pagal tokią pat salygą kaip ir pirmasis masyvas. Viską pakartokite atsitiktinį nuo 10 iki 30  kiekį kartų. Paskutinio masyvo paskutinis elementas yra lygus 0;
 
-let atsMasyvas = [];
-for (let i = 0; i < rand(10, 20); i++) {
-  atsMasyvas.push(rand(0, 10));
-}
-console.log('Atsitiktinio ilgio masyvas:', atsMasyvas);
-
-function submasyvas(masyvas) {
-  let paskElementas = [];
-  let count = 0;
-  for (let i = 0; i < rand(10, 20); i++) {
-    masyvas[masyvas.length - 1] = paskElementas;
-    paskElementas.push(rand(0, 10));
-    count++;
+const randSizeArray = (sizeInt = rand(10, 20)) => {
+  const array = [];;
+  for (let i = 0; i < sizeInt; i++) {
+    array.push(rand(0, 10));
   }
-  while (count < rand(10, 30)) {
-    paskElementas[paskElementas.length - 1] = paskElementas;
-  };
-  return masyvas;
+  return array;
 }
-console.log('Submasyvas:', submasyvas(atsMasyvas));
+console.log('Atsitiktinio ilgio masyvas:', randSizeArray());
+
+let arrSize = rand(10, 30);
+let mainArray;
+let nestedArr;
+
+for (let i = 0; i < arrSize; i++) {
+  nestedArr = randSizeArray();
+
+  if (!arrSize) {
+    nestedArr[nestedArr.length - 1] = 0;
+  } else {
+
+    nestedArr[nestedArr.length - 1] = mainArray;
+  }
+  mainArray = nestedArr;
+}
+console.log('Pagrindinis masyvas:', mainArray);
 
 // 8)
 console.log('8)---------------------------');
 // Suskaičiuokite septinto uždavinio elementų, kurie nėra masyvai, sumą. Skaičiuoti reikia visuose masyvuose ir submasyvuose.
-
-const subArr = submasyvas(atsMasyvas);
-console.log('Subarray:', subArr);
 
 function numbersSum(nestedArr) {
 
@@ -145,8 +147,88 @@ function numbersSum(nestedArr) {
   return sum;
 }
 
-console.log(numbersSum(subArr));
+console.log(numbersSum(mainArray));
 
 // 9)
 console.log('9)---------------------------');
-// Sugeneruokite masyvą iš trijų elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 33. Jeigu tarp trijų paskutinių elementų yra nors vienas ne pirminis skaičius, prie masyvo pridėkite dar vieną elementą- atsitiktinį skaičių nuo 1 iki 33. Vėl patikrinkite pradinę sąlygą ir jeigu reikia pridėkite dar vieną elementą. Kartokite, kol sąlyga nereikalaus pridėti elemento.s
+// Sugeneruokite masyvą iš trijų elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 33. Jeigu tarp trijų paskutinių elementų yra nors vienas ne pirminis skaičius, prie masyvo pridėkite dar vieną elementą- atsitiktinį skaičių nuo 1 iki 33. Vėl patikrinkite pradinę sąlygą ir jeigu reikia pridėkite dar vieną elementą. Kartokite, kol sąlyga nereikalaus pridėti elemento.
+
+const dalikliuKiekis = (skaicius) => {
+  let count = 0;
+  for (let i = 2; i < skaicius; i++) {
+    if (skaicius % i === 0) {
+      count++;
+    }
+  }
+  return count;
+}
+
+const number1 = rand(1, 33);
+const number2 = rand(1, 33);
+const number3 = rand(1, 33);
+
+const randArr = [number1, number2, number3];
+
+const tikPirminiai = (arr, lastElm = 3) => {
+  for (let i = 0; i < lastElm; i++) {
+    if (dalikliuKiekis(arr.slice(-lastElm)[i])) {
+      return true;
+    }
+  }
+  return false;
+}
+
+while (tikPirminiai(randArr)) {
+  randArr.push(rand(1, 33));
+}
+
+console.log(randArr);
+
+// 10)
+console.log('10)---------------------------');
+// Sugeneruokite masyvą iš 10 elementų, kurie yra masyvai iš 10 elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 100. Jeigu tokio didelio masyvo (ne atskirai mažesnių) pirminių skaičių vidurkis mažesnis už 70, suraskite masyve mažiausią skaičių (nebūtinai pirminį) ir prie jo pridėkite 3. Vėl paskaičiuokite masyvo pirminių skaičių vidurkį ir jeigu mažesnis nei 70 viską kartokite.
+
+const kubas = [];
+
+for (let i = 0; i < 10; i++) {
+  const elmReiksmes = [];
+  for (let x = 0; x < 10; x++) {
+    elmReiksmes.push(rand(1, 100));
+  }
+  kubas.push(elmReiksmes);
+}
+console.log(kubas);
+console.table(kubas);
+
+const pirminiuSkVidurkis = (arr) => {
+  let sum = 0;
+  let count = 0;
+  arr.forEach(elm => elm.forEach(val => {
+    if (!dalikliuKiekis(val)) {
+      count++;
+      sum += val;
+    }
+  }));
+  return count ? sum / count : 0;
+}
+console.log('Pirminiu skaiciu vidurkis:', pirminiuSkVidurkis(kubas));
+
+const minSkaicius = (arr) => {
+  let minSk = arr[0][0];
+  let koord = [0, 0];
+  arr.forEach((elm, yInd) => elm.forEach((val, xInd) => {
+    if (val < minSk) {
+      minSk = val;
+      koord = [yInd, xInd];
+    }
+  }))
+  return koord;
+}
+
+console.log(minSkaicius(kubas));
+
+while (pirminiuSkVidurkis(kubas) < 70) {
+  const [y, x] = minSkaicius(kubas);
+  kubas[y][x] += 3;
+}
+console.log('Pirminiu skaiciu vidurkis:', pirminiuSkVidurkis(kubas));

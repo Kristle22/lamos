@@ -90,10 +90,10 @@ console.log('Yra', naujiGyvunai.length, 'nauji gyvunai', naujiGyvunai);
 
 // i) Suskaičiuoti atskirai kiek yra naujų gyvūnų kiekvienoje kategorijoje
 
-const kategorijos = [...gyvKategorijos];
+// const kategorijos = [...gyvKategorijos];
 
-kategorijos.filter(element => {
-  console.log(element.id, 'kategorijoje', element.querySelectorAll('.new').length, 'nauji gyvunai');
+gyvKategorijos.forEach(element => {
+  console.log('Kategorijoje', element.id, element.querySelectorAll('.new').length, 'nauji gyvunai.');
 });
 
 // 3)

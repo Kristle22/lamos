@@ -183,17 +183,17 @@ const skaiciuMasyvas2 = [];
 let atsSkaicius1;
 let atsSkaicius2;
 
-for (let i = 0; i < 100; i++) {
-  atsSkaicius1 = rand(100, 999);
-  atsSkaicius2 = rand(100, 999);
+// for (let i = 0; i < 100; i++) {
+//   atsSkaicius1 = rand(100, 999);
+//   atsSkaicius2 = rand(100, 999);
 
-  if (skaiciuMasyvas1.indexOf(atsSkaicius1) === -1) {
-    skaiciuMasyvas1.push(atsSkaicius1);
-  }
-  if (skaiciuMasyvas2.indexOf(atsSkaicius2) === -1) {
-    skaiciuMasyvas2.push(atsSkaicius2);
-  }
-}
+//   if (skaiciuMasyvas1.indexOf(atsSkaicius1) === -1) {
+//     skaiciuMasyvas1.push(atsSkaicius1);
+//   }
+//   if (skaiciuMasyvas2.indexOf(atsSkaicius2) === -1) {
+//     skaiciuMasyvas2.push(atsSkaicius2);
+//   }
+// }
 
 do {
   atsSkaicius1 = rand(100, 999);
@@ -209,6 +209,25 @@ do {
 
 console.log('Pirmas masyvas:', skaiciuMasyvas1, 'Antras masyvas:', skaiciuMasyvas2);
 console.log(atsSkaicius1);
+
+// 5)
+console.log('b)UNIQUE VALUES WITH SET()---------------------------');
+const setValues1 = new Set();
+do {
+  setValues1.add(rand(100, 999));
+} while (setValues1.size < 100);
+
+const arrValues1 = [...setValues1];
+console.log('Pirmas masyvas:', arrValues1);
+
+const setValues2 = new Set();
+
+do {
+  setValues2.add(rand(100, 999));
+} while (setValues2.size < 100);
+
+const arrValues2 = [...setValues2];
+console.log(arrValues2);
 
 // 6)
 console.log('6)---------------------------');
@@ -244,6 +263,16 @@ for (let i = 0; i < 100; i++) {
 }
 console.log('Masyvas tusciais indeksais:', mixMasyvas2);
 
+// 8)
+console.log('b)Index&Value with FOREACH()---------------------------');
+
+const indexHoles = [];
+
+arrValues1.forEach((val, i) => {
+  indexHoles[val] = arrValues2[i];
+});
+
+console.log(indexHoles);
 
 // 9)
 console.log('9)---------------------------');
