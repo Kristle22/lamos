@@ -167,10 +167,10 @@ do {
 
   if (suma500 > 500) {
     sumaVirs++;
-    kupiura = 0;
+    suma500 -= kupiura;
   }
-  console.log('Kupiura: ', kupiura);
-} while (suma500 < 500 && sumaVirs < 1);
+} while (suma500 !== 500 && sumaVirs <= 1);
+console.log('Kupiura: ', kupiura);
 
 
 console.log('I pinigine ideta ', suma500, 'Eur. suma smulkiom kupiurom.');
