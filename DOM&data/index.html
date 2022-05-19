@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
     <title>DOM & data</title>
   </head>
   <body>
@@ -28,15 +28,16 @@
     <!-- 3) Sukurti tris radio tipo elementus su reikšmėm “rytas”, “diena”, “vakaras”. Pasikeitus reikšmėm radio elemente, naują reikšmę išvesti į console.log
  -->
     <h3>3.</h3>
+    <div class="radio-btns">
+      <input type="radio" name="rytas" id="rytas" value="rytas" />
+      <label for="rytas">Rytas</label>
 
-    <input type="radio" name="rytas" id="rytas" value="rytas" />
-    <label for="rytas">Rytas</label>
+      <input type="radio" name="diena" id="diena" value="diena" />
+      <label for="diena">Diena</label>
 
-    <input type="radio" name="diena" id="diena" value="diena" />
-    <label for="diena">Diena</label>
-
-    <input type="radio" name="vakaras" id="vakaras" value="vakaras" />
-    <label for="vakaras">Vakaras</label>
+      <input type="radio" name="vakaras" id="vakaras" value="vakaras" />
+      <label for="vakaras">Vakaras</label>
+    </div>
 
     <!-- 4) Sukurti vieną checkbox tipo elementą. Pažyminėjus elementą išvesti i console.log pranešimą “pažymėta”, o nuėmus pažymėjimą- “nepažymėta”
  -->
@@ -44,9 +45,9 @@
 
     <input
       type="checkbox"
-      name="Javascript"
-      id="JavaScript"
-      value="JavaScript"
+      name="javascript"
+      id="javaScript"
+      value="javaScript"
     />
     <label for="JavaScript">JavaScript</label>
 

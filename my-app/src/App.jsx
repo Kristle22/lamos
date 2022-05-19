@@ -1,29 +1,78 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-import Hello from './Components/009/Hello';
-import Kurmis from './Components/009/Kurmis';
-import Zuikis from './Components/009/Zuikis';
-import Tekstas from './Components/009/Tekstas';
-import ZebBeb from './Components/009/Zeb&Beb';
-import Skyrius from './Components/009/Skyrius';
-import Antraste from './Components/009/Antraste';
+import randColor from './FUNCTIONS/randColor';
 
 function App() {
+  const [spalva, setSpalva] = useState('yellow');
+
+  const keistiSpalva = () => {
+    // const nauja = spalva === 'yellow' ? 'pink' : 'yellow'; BLOGAI!!!!!
+    setSpalva((senojiSpalva) =>
+      senojiSpalva === 'yellow' ? 'pink' : 'yellow'
+    );
+    // console.log(spalva);
+  };
+
+  const [number, setNumber] = useState(1);
+
+  const increaseNumber = () => {
+    setNumber((initialNumber) => initialNumber + 1);
+  };
+
+  const decreaseNumber = () => {
+    setNumber((initialNumber) => initialNumber - 1);
+  };
+
+  const [square, setSquare] = useState([]);
+
+  const addSquares = () => {
+    setSquare((sq) => [...sq, randColor()]);
+  };
+
+  const remSquares = () => {
+    setSquare((sq) => sq.slice(1));
+  };
+
+  const mygtukas = () => {
+    // console.log('Aš gražus mygtukas');
+    return mygtukoBrolis;
+  };
+
+  const mygtukoBrolis = () => {
+    console.log('Aš gražus mygtuko brolis');
+  };
+
+  const beArgumentu = () => {
+    console.log('beArgumentu');
+  };
+
+  const suArgumentu = (ka) => {
+    console.log('suArgumentu: ' + ka);
+  };
+
   return (
     <div className='App'>
       <header className='App-header'>
-        <Hello spalva='green' bg='yellow' />
-        <Hello spalva='black' bg='white' />
-        <Hello spalva='gray' bg='pink' />
-        <Kurmis skaicius={6} />
-        <Zuikis spalva='pink' />
-        <Tekstas h1Txt='Cia irasykite bet koki teksta...' />
-        <ZebBeb spalva={1} />
-        <Skyrius h1='Skyriaus pavadinimas' h2='Poskyrio pavadinimas' />
-        <Antraste h1text='Spalvotas knygos pavadinimas' spalva='orange' />
-        <Antraste h2text='Spalvoti skyriu pavadinimai' spalva='greenyellow' />
+        <h1 style={{ color: spalva }}>STATE_{number}</h1>
+
+        <div className='kvc'>
+          {square.map((sq, i) => (
+            <div className='kv' key={i} style={{ backgroundColor: sq }}>
+              {i}
+            </div>
+          ))}
+        </div>
+        <button onClick={mygtukas}>Mygtukas</button>
+        <button onClick={beArgumentu}>BE</button>
+        <button onClick={() => suArgumentu('labas')}>SU</button>
+        <button onClick={keistiSpalva}>Kita spalva</button>
+        <button onClick={increaseNumber}>Increase</button>
+        <button onClick={decreaseNumber}>Decrease</button>
+        <button onClick={addSquares}>ADD [SQ]</button>
+        <button onClick={remSquares}>REM [SQ]</button>
       </header>
     </div>
   );
 }
+
 export default App;
