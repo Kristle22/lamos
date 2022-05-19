@@ -54,3 +54,10 @@
   align-items: center;
   flex-wrap: wrap;
 }
+
+.circle {
+  /* border-radius: 50%; */
+  background-color: antiquewhite;
+  padding: 40px;
+  margin-bottom: 20px;
+}

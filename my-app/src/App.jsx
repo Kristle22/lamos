@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import './App.css';
 import randColor from './FUNCTIONS/randColor';
+import Apskritimas from './Components/010/Apskritimas';
+import RandomNumbers from './Components/010/RadomNumbers';
+import PlusMinus from './Components/010/PlusMinus';
+import AddSquares from './Components/010/AddSquares';
+import ChangeReset from './Components/010/ChangeReset';
 
 function App() {
   const [spalva, setSpalva] = useState('yellow');
@@ -70,6 +75,15 @@ function App() {
         <button onClick={decreaseNumber}>Decrease</button>
         <button onClick={addSquares}>ADD [SQ]</button>
         <button onClick={remSquares}>REM [SQ]</button>
+        <br />
+        <Apskritimas color={randColor()} />
+        <br />
+        <RandomNumbers wh='20px' c='20px' />
+        <PlusMinus />
+        <br />
+        <AddSquares color='blue' />
+        <br />
+        <ChangeReset red='red' blue='blue' />
       </header>
     </div>
   );
