@@ -3,10 +3,10 @@ import rand from '../../FUNCTIONS/randNumbers';
 
 function RandomNumbers({ wh, c }) {
   const [radius, setRadius] = useState(50);
-  const [number, setNumber] = useState(rand(1, 99));
+  const [number, setNumber] = useState(rand(5, 25));
 
   const changeRadius = () => {
-    setRadius((r) => (r === 0 ? 50 : 0));
+    setRadius((r) => (r === 3 ? 50 : 3));
   };
 
   const genRandom = () => {

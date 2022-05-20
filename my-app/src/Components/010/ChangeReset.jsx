@@ -11,7 +11,7 @@ function ChangeReset({ red, blue }) {
   };
 
   const removeSquares = () => {
-    setSquare((sq) => sq.splice());
+    setSquare((sq) => sq.slice(sq.length));
   };
 
   return (
