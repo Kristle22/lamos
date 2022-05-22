@@ -2,12 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import AppBaseList from './AppBaseList';
+import AppClassState from './AppClassState';
+import App009 from './App009';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
   <App />
+  // <AppBaseList />
+  // <AppClassState />
+  // <App009 />
   // </React.StrictMode>
 );
 
