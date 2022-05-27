@@ -67,12 +67,49 @@
  -->
     <h3>6.</h3>
 
-    <h1 id="h1">Isvestas tekstas:<br /></h1>
+    <h1 id="h1" style="color: red">Isvestas tekstas:<br /></h1>
 
     <!-- 7) Pakartoti 1-5 uždavinius rezultatus atvaizduojant DOM’e dinamiškai sukurtuose elementuose h3
-
  -->
     <h3>7.</h3>
     <h3>Rezultatai:</h3>
+
+    <!-- 8) Pakartoti 1-5 uždavinius. Kiekvienam uždaviniui sukurti naują tuščią masyvą (arba vieną objektą su 5 masyvais viduje). Kiekvieną pasikeitimo reikšmę įrašyti į masyvą kaip naują elementą (5 uždavinio atveju įrašyti masyvą su pažymėtom reikšmėm) ir į console.log išvesti tą masyvą.
+ -->
+    <h3 id="arr">8.</h3>
+    <h3>[rezultatai masyve]</h3>
+
+    <!-- 9) Padaryti mygtuką “GO”, kurį paspaudus, naudojant masyvus, gautus 8 uždavinyje, dinamiškai, iš tų masyvų duomenų, būtų sukurta daug h3 tagų kaip tai buvo padaryta 7 uždavinyje (vienas įrašas masyve, atinka vieną naują h3 tagą).
+ -->
+    <h3>9. Masyvo duomenu reiksmes:</h3>
+    <div
+      id="results"
+      style="
+        width: 200px;
+        height: 150px;
+        border: 3px solid greenyellow;
+        padding: 10px;
+        margin: 10px;
+      "
+    ></div>
+    <button id="go-btn">GO!</button>
+
+    <!-- 10) Padaryti mygtuką “Reset”, kuris ištrintų duomenis iš visų masyvų.
+ -->
+    <h3>10</h3>
+
+    <button type="reset" id="delete">Reset</button>
+
+    <!-- 11) Padaryti mygtuką “Clear”, kuris ištrintų visus h3 tagus iš DOM’o.
+ -->
+    <h3>11.</h3>
+
+    <button id="clear">Clear</button>
+
+    <!-- 12) Padaryti mygtuką “GO JSON”, kurį paspaudus, 9 uždavinio masyvus būtų sudėti į sukurtą naują objektą. Tą objektą paversti JSON stringu ir užsaugoti susikurtam kintamąjame. Kintamąjį išvesti i console.log Nuskaityti JSON stringą iš kintamojo, paversti jį objektu ir iš jo informacijos dinamiškai suformuoti h3 tagus kaip 9 uždavinyje.
+ -->
+    <h3>12.</h3>
+
+    <button id="json">GO JSON!</button>
   </body>
 </html>
