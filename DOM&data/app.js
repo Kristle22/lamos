@@ -261,3 +261,21 @@ console.log('12)---------------------------');
 const json = document.getElementById('json');
 console.log(json);
 
+json.addEventListener('click', () => {
+  const arrObject = {
+    inputArray: inputReiksmes,
+    selectArray: selectReiksmes,
+    radioArray: radioReiksmes,
+    ckeckOrNotArray: checkOrNot,
+    ckboxArray: chboxReiksmes
+  }
+  console.log(arrObject);
+  const jsonObject = JSON.stringify(arrObject);
+  console.log(jsonObject);
+  const parseObject = JSON.parse(jsonObject);
+  console.log(parseObject);
+
+  const data = document.createElement('div');
+  data.innerHTML = Object.values(parseObject).map(val => `<h3>${val}</h3>`).join('');
+  document.body.appendChild(data);
+});
